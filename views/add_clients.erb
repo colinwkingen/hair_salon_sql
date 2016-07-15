@@ -13,9 +13,13 @@
 </form>
 
 <div class="well">
-
-
-
+<ul>
+  <%if @has_clients %>
+    <% @has_clients.each() do |client| %>
+    <li><%= client.name %> </li>
+    <% end %>
+  <% end %>
+</ul>
 
 </div>
 

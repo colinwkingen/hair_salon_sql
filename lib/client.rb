@@ -32,6 +32,21 @@ class Client
     end
     client_lookup
   end
+  define_singleton_method(:find_by_stylist) do |id|
+    every_client = Client.all()
+    client_lookup = []
+    every_client.each() do |client|
+      if client.stylist.to_i == id
+        client_lookup.push(client)
+      end
+    end
+    if client_lookup.length > 0
+      client_lookup
+    else
+      client_lookup = nil
+      client_lookup
+    end
+  end
   define_singleton_method(:all) do
     all_clients = DB.exec("SELECT * FROM clients;")
     clients = []
