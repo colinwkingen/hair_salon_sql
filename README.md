@@ -1,8 +1,7 @@
-## Define Words
+## Astro Salon
 
 #### By Colin Kingen, 2016
 
-visit it live at: https://pacific-spire-86090.herokuapp.com/
 
 ## Description
 
@@ -13,13 +12,14 @@ It is intended to be an exercise in  using a object oriented programming.
 
 ## Setup/Installation Requirements
 
-postgres=# CREATE DATABASE hair_salon;
+To recreate the database necessary for this app, in postgresql do:
 
+postgres=# CREATE DATABASE hair_salon;
 hair_salon=# CREATE TABLE clients (id serial PRIMARY KEY, name varchar, seesstylist int);
 hair_salon=# CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
 
 
-This app is viewable at:
+This app is viewable at: https://github.com/colinwkingen/hair_salon_sql
 
 To install this repository into a new project each time, first
 
@@ -39,7 +39,7 @@ Contact me on github if you have any questions.
 * HTML
 * Sinatra
 * Ruby
-* Heroku
+* postgreSQL
 
 
 ### License

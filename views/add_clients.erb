@@ -1,6 +1,4 @@
 <h1>Today's bookings for <%= @this_stylist.name %>. </h1>
-
-
 <form action="add_client" method="post">
   <div class="form-group">
     <label for="new_client">Add a client to this stylist.</label>
@@ -11,7 +9,6 @@
   </div>
   <button class="move_right" type="submit">Add</button>
 </form>
-
 <div class="well">
 <ul>
   <%if @has_clients %>
@@ -24,16 +21,18 @@
         </div>
         <button class="move_right" type="submit">Remove Booking</button>
       </form>
+      <form action="change_client_name" method="post">
+        <label for="name">Change Booking Name</label>
+        <input type="text" name="client_name">
+        <input name="_method" type="hidden" value="patch">
+        <input type="hidden" name="chosen_client" value="<%= client.id %>">
+        <button class="btn" type="submit">Update Name</button>
+      </form>
     </li>
     <% end %>
   <% end %>
 </ul>
-
 </div>
-
-
-
-
 <form action="/" method="get">
   <button class="btn" type="submit">Back to Home</button>
 </form>
