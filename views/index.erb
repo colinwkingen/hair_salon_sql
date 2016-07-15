@@ -10,7 +10,15 @@
       <h3>Current Available Stylists</h3>
       <ul>
       <% @all_stylists.each() do |stylist| %>
-        <li><%= stylist.name %> </li>
+        <li><%= stylist.name %>
+          <form action="remove_stylist" method="post">
+            <div class="form-group">
+              <input name="_method" type="hidden" value="delete">
+              <input type="hidden" name="chosen_stylist" value="<%= stylist.id %>">
+            </div>
+            <button class="move_right" type="submit">Send Home</button>
+          </form>
+        </li>
         <form action="one_stylist" method="post">
           <div class="form-group">
             <input type="hidden" name="these_clients" value="<%= stylist.id %>">

@@ -1,4 +1,4 @@
-<h1>Add Clients for <%= @this_stylist.name %> </h1>
+<h1>Today's bookings for <%= @this_stylist.name %>. </h1>
 
 
 <form action="add_client" method="post">
@@ -16,7 +16,15 @@
 <ul>
   <%if @has_clients %>
     <% @has_clients.each() do |client| %>
-    <li><%= client.name %> </li>
+    <li><%= client.name %>
+      <form action="remove_client" method="post">
+        <div class="form-group">
+          <input name="_method" type="hidden" value="delete">
+          <input type="hidden" name="chosen_client" value="<%= client.id %>">
+        </div>
+        <button class="move_right" type="submit">Remove Booking</button>
+      </form>
+    </li>
     <% end %>
   <% end %>
 </ul>

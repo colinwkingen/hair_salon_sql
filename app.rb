@@ -49,3 +49,14 @@ post('/one_stylist') do
   @this_stylist = Stylist.find(@this_stylist_id)
   erb(:add_clients)
 end
+
+delete('/remove_client') do
+  @client = Client.find(params.fetch('chosen_client').to_i)
+  @client.delete()
+  redirect to('/')
+end
+delete('/remove_stylist') do
+  @stylist = Stylist.find(params.fetch('chosen_stylist').to_i)
+  @stylist.delete()
+  redirect to('/')
+end
