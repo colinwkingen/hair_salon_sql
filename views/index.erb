@@ -11,10 +11,9 @@
       <ul>
       <% @all_stylists.each() do |stylist| %>
         <li><%= stylist.name %> </li>
-        <form action="view_clients" method="post">
+        <form action="one_stylist" method="post">
           <div class="form-group">
-            <label for="these_clients">Add a Stylist that is working today.</label>
-            <input type="text" name="these_clients" value="">
+            <input type="hidden" name="these_clients" value="<%= stylist.id %>">
           </div>
           <button class="move_right" type="submit">View Clients</button>
         </form>
@@ -33,13 +32,6 @@
       <% @all_clients.each() do |client| %>
         <li><%= client.name %> </li>
       <% end %>
-      <form action="add_client" method="post">
-        <div class="form-group">
-          <label for="new_client">Add a client to this stylist.</label>
-          <input type="text" name="new_client" value="">
-        </div>
-        <button class="move_right" type="submit">Add</button>
-      </form>
     </div>
   </div>
 </div>

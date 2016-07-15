@@ -19,14 +19,16 @@ post('/add_stylist') do
   @all_clients = Client.all()
   erb(:index)
 end
-post('/add_client') do
-  @newest_client = params.fetch('new_client')
-  Client.new({:name => @newest_client}).save()
+get('/add_stylist') do
   @all_stylists = Stylist.all()
   @all_clients = Client.all()
   erb(:index)
 end
-get('/add_stylist') do
+
+post('/add_client') do
+  @newest_client = params.fetch('new_client')
+  @chosen_stylist = params.fetch('chosen_stylist')
+  Client.new({:name => @newest_client, :stylist => @chosen_stylist}).save()
   @all_stylists = Stylist.all()
   @all_clients = Client.all()
   erb(:index)
@@ -35,4 +37,10 @@ get('/add_client') do
   @all_stylists = Stylist.all()
   @all_clients = Client.all()
   erb(:index)
+end
+
+post('/one_stylist') do
+  @this_stylist_id = params.fetch('these_clients').to_i
+  @this_stylist = Stylist.find(@this_stylist_id)
+  erb(:add_clients)
 end
