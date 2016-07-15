@@ -25,7 +25,7 @@ class Stylist
     every_stylist = Stylist.all()
     stylist_lookup = nil
     every_stylist.each() do |stylist|
-      if train.id == id
+      if stylist.id == id
         stylist_lookup = stylist
       end
     end
@@ -34,8 +34,8 @@ class Stylist
   define_singleton_method(:all) do
     all_stylists = DB.exec("SELECT * FROM stylists;")
     stylists = []
-    returned_styists.each() do |stylist|
-      trains.push(Stylist.new({
+    all_stylists.each() do |stylist|
+      stylists.push(Stylist.new({
         :id => stylist.fetch('id').to_i,
         :name => stylist.fetch('name')
         }))

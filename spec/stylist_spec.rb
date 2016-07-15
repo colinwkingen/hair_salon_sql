@@ -2,7 +2,7 @@ require('spec_helper')
 
 describe(Stylist) do
   before() do
-    Client.clear()
+    # Client.clear()
     Stylist.clear()
   end
   describe('.all') do
