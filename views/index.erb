@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Welcome to Astro Salon</h1>
+      <h3>Salon management software that's out of this world.</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <h3>Current Available Stylists</h3>
+      <ul>
+      <% @all_stylists.each() do |stylist| %>
+        <li><%= stylist.name %> </li>
+        <form action="view_clients" method="post">
+          <div class="form-group">
+            <label for="these_clients">Add a Stylist that is working today.</label>
+            <input type="text" name="these_clients" value="">
+          </div>
+          <button class="move_right" type="submit">View Clients</button>
+        </form>
+      <% end %>
+      <form action="add_stylist" method="post">
+        <div class="form-group">
+          <label for="new_stylist">Add a Stylist that is working today.</label>
+          <input type="text" name="new_stylist" value="">
+        </div>
+        <button class="move_right" type="submit">Add</button>
+      </form>
+      </ul>
+    </div>
+    <div class="col-lg-6">
+      <h3>Current clients this stylist serves.</h3>
+      <% @all_clients.each() do |client| %>
+        <li><%= client.name %> </li>
+      <% end %>
+      <form action="add_client" method="post">
+        <div class="form-group">
+          <label for="new_client">Add a client to this stylist.</label>
+          <input type="text" name="new_client" value="">
+        </div>
+        <button class="move_right" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
