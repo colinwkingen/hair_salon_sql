@@ -1,0 +1,26 @@
+li {
+  list-style: none;
+}
+body {
+  background-color: #F0F0FF;
+}
+h1 {
+  font-weight: bold;
+}
+.page-header {
+  background-color: #E7E7FF;
+}
+.well {
+  margin: 1.5em;
+  padding: 2em;
+}
+.btn {
+  margin: 1em;
+}
+.add-stylist {
+  margin: 2em;
+}
+h2 {
+  font-weight: bold;
+  text-decoration: underline;
+}

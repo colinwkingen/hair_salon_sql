@@ -10,7 +10,7 @@
       <h3>Current Available Stylists</h3>
       <ul>
       <% @all_stylists.each() do |stylist| %>
-        <li class="well"><h2><%= stylist.name %></h2>
+        <li class="well stylist-listing"><h2><%= stylist.name %></h2>
           <form action="remove_stylist" method="post">
             <div class="form-group">
               <input name="_method" type="hidden" value="delete">
@@ -27,11 +27,11 @@
         </li>
       <% end %>
       <form action="add_stylist" method="post">
-        <div class="form-group">
+        <div class="form-group add-stylist well">
           <label for="new_stylist">Add a Stylist that is working today.</label>
+          <button class="pull-right btn" type="submit">Add</button>
           <input type="text" name="new_stylist" value="">
         </div>
-        <button class="move_right btn-lg" type="submit">Add</button>
       </form>
       </ul>
     </div>
