@@ -1,26 +1,24 @@
 <h1>Today's bookings for <%= @this_stylist.name %>. </h1>
 <form action="change_stylist_name" method="post">
-  <label for="name">Change Working Stylist's Name</label>
   <input type="text" name="stylist_name">
   <input name="_method" type="hidden" value="patch">
   <input type="hidden" name="chosen_stylist" value="<%= @this_stylist.id %>">
   <button class="btn" type="submit">Update Name</button>
+  <label for="name">Change Working Stylist's Name</label>
 </form>
 <form action="add_client" method="post">
   <div class="form-group">
-    <label for="new_client">Add a client to this stylist.</label>
     <input type="text" name="new_client" value="">
-  </div>
-  <div class="form-group">
+    <button class="move_right btn" type="submit">Add</button>
+    <label for="new_client">Add a client to this stylist.</label>
     <input type="hidden" name="chosen_stylist" value="<%= @this_stylist.id %>">
   </div>
-  <button class="move_right" type="submit">Add</button>
 </form>
 <div class="well">
 <ul>
   <%if @has_clients %>
     <% @has_clients.each() do |client| %>
-    <li><%= client.name %>
+    <li><h3><%= client.name %></h3>
       <form action="remove_client" method="post">
         <div class="form-group">
           <input name="_method" type="hidden" value="delete">
