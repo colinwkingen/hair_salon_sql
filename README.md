@@ -5,9 +5,10 @@
 
 ## Description
 
-This is a project that utilizes Sinatra as a server and runs on Heroku.
-IT allows the user to enter a word, then enter any number of descriptions for it.
-It is intended to be an exercise in  using a object oriented programming.
+This is a project that uses a database to explore one to many information
+relationships. It allows a user, presumably a salon employeee, to alter
+the stylists and clients present and assign clients to stylists. All persistent
+data is stored in postgresql databases.
 
 
 ## Setup/Installation Requirements
