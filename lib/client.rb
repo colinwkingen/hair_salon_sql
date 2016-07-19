@@ -6,7 +6,7 @@ class Client
     @stylist = attributes.fetch(:stylist)
   end
   define_method(:save) do
-    result = DB.exec("INSERT INTO clients (name, seesstylist) VALUES ('#{@name}', #{@stylist}) RETURNING id;")
+    result = DB.exec("INSERT INTO clients (name, stylist_id) VALUES ('#{@name}', #{@stylist}) RETURNING id;")
     @id = result.first().fetch('id').to_i
   end
   define_method(:==) do |other_client|
@@ -54,7 +54,7 @@ class Client
       clients.push(Client.new({
         :id => client.fetch('id').to_i,
         :name => client.fetch('name'),
-        :stylist => client.fetch('seesstylist')
+        :stylist => client.fetch('stylist_id')
         }))
     end
     clients
