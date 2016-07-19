@@ -1,12 +1,12 @@
 <h1>Today's bookings for <%= @this_stylist.name %>. </h1>
-<form action="change_stylist_name" method="post">
+<form action="stylists/:id" method="post">
   <input type="text" name="stylist_name">
   <input name="_method" type="hidden" value="patch">
   <input type="hidden" name="chosen_stylist" value="<%= @this_stylist.id %>">
   <button class="btn" type="submit">Update Name</button>
   <label for="name">Change Working Stylist's Name</label>
 </form>
-<form action="add_client" method="post">
+<form action="/clients" method="post">
   <div class="form-group">
     <input type="text" name="new_client" value="">
     <button class="move_right btn" type="submit">Add</button>
@@ -19,14 +19,14 @@
   <%if @has_clients %>
     <% @has_clients.each() do |client| %>
     <li><h3><%= client.name %></h3>
-      <form action="remove_client" method="post">
+      <form action="/clients/:id" method="post">
         <div class="form-group">
           <input name="_method" type="hidden" value="delete">
           <input type="hidden" name="chosen_client" value="<%= client.id %>">
         </div>
         <button class="move_right btn" type="submit">Remove Booking</button>
       </form>
-      <form action="change_client_name" method="post">
+      <form action="clients/:id" method="post">
         <label for="name">Change Booking Name</label>
         <input type="text" name="client_name">
         <input name="_method" type="hidden" value="patch">
