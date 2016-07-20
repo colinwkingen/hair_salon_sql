@@ -48,23 +48,23 @@ get('/stylists/:id') do
   erb(:add_clients)
 end
 delete('/clients/:id') do
-  @client = Client.find(params.fetch('chosen_client').to_i)
+  @client = Client.find(params.fetch('id').to_i)
   @client.delete()
   redirect to('/')
 end
 delete('/stylists/:id') do
-  @stylist = Stylist.find(params.fetch('chosen_stylist').to_i)
+  @stylist = Stylist.find(params.fetch('id').to_i)
   @stylist.delete()
   redirect to('/')
 end
 patch('/clients/:id') do
-  @client = Client.find(params.fetch('chosen_client').to_i)
+  @client = Client.find(params.fetch('id').to_i)
   name = params.fetch('client_name')
   @client.update_name(name)
   redirect to('/')
 end
 patch('/stylists/:id') do
-  @stylist = Stylist.find(params.fetch('chosen_stylist').to_i)
+  @stylist = Stylist.find(params.fetch('id').to_i)
   name = params.fetch('stylist_name')
   @stylist.update_name(name)
   redirect to('/')
