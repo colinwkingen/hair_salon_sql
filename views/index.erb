@@ -11,16 +11,16 @@
       <ul>
       <% @all_stylists.each() do |stylist| %>
         <li class="well stylist-listing"><h2><%= stylist.name %></h2>
-          <form action="stylists/:id" method="post">
+          <form action="stylists/<%= stylist.id %>" method="post">
             <div class="form-group">
               <input name="_method" type="hidden" value="delete">
-              <input type="hidden" name="chosen_stylist" value="<%= stylist.id %>">
+              <!-- <input type="hidden" name="chosen_stylist" value="<%= stylist.id %>"> -->
             </div>
             <button class="btn pull-right" type="submit">Send Home</button>
           </form>
-          <form action="stylists/:id" method="get">
+          <form action="stylists/<%= stylist.id %>" method="get">
             <div class="form-group">
-              <input type="hidden" name="these_clients" value="<%= stylist.id %>">
+              <!-- <input type="hidden" name="these_clients" value="<%= stylist.id %>"> -->
             </div>
             <button class="btn pull-right" type="submit">View Clients</button>
           </form>

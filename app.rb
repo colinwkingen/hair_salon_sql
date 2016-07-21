@@ -19,30 +19,17 @@ post('/stylists') do
   @all_clients = Client.all()
   erb(:index)
 end
-get('/stylists') do
-  @all_stylists = Stylist.all()
-  @all_clients = Client.all()
-  erb(:index)
-end
-post('/clients') do
+post('/clients/:id') do
   @newest_client = params.fetch('new_client')
-  @chosen_stylist = params.fetch('chosen_stylist').to_i
-  @this_stylist = Stylist.find(@chosen_stylist)
-  Client.new({:name => @newest_client, :stylist => @chosen_stylist}).save()
+  @this_stylist = Stylist.find(params.fetch('id').to_i)
+  Client.new({:name => @newest_client, :stylist => @this_stylist.id}).save()
   @has_clients = Client.find_by_stylist(@this_stylist.id)
   @all_stylists = Stylist.all()
   @all_clients = Client.all()
   erb(:add_clients)
 end
-get('/clients') do
-  @this_stylist = Stylist.find(@chosen_stylist)
-  @has_clients = Client.find_by_stylist(@this_stylist.id.to_i)
-  @all_stylists = Stylist.all()
-  @all_clients = Client.all()
-  erb(:add_clients)
-end
 get('/stylists/:id') do
-  @this_stylist_id = params.fetch('these_clients').to_i
+  @this_stylist_id = params.fetch('id').to_i
   @has_clients = Client.find_by_stylist(@this_stylist_id)
   @this_stylist = Stylist.find(@this_stylist_id)
   erb(:add_clients)

@@ -15,10 +15,11 @@ data is stored in postgresql databases.
 
 To recreate the database necessary for this app, in postgresql do:
 
-postgres=# CREATE DATABASE hair_salon;
-hair_salon=# CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int);
-hair_salon=# CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
+* postgres=# CREATE DATABASE hair_salon;
+* hair_salon=# CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int);
+* hair_salon=# CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
 
+* postgres=# CREATE DATABASE hair_salon_test FROM TEMPLATE hair_salon;
 
 This app is viewable at: https://github.com/colinwkingen/hair_salon_sql
 

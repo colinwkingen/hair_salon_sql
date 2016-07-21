@@ -2,16 +2,14 @@
 <form action="/stylists/<%= @this_stylist.id %>" method="post">
   <input type="text" name="stylist_name">
   <input name="_method" type="hidden" value="patch">
-  <input type="hidden" name="chosen_stylist" value="<%= @this_stylist.id %>">
   <button class="btn" type="submit">Update Name</button>
   <label for="name">Change Working Stylist's Name</label>
 </form>
-<form action="/clients" method="post">
+<form action="/clients/<%= @this_stylist.id %>" method="post">
   <div class="form-group">
     <input type="text" name="new_client" value="">
     <button class="move_right btn" type="submit">Add</button>
     <label for="new_client">Add a client to this stylist.</label>
-    <input type="hidden" name="chosen_stylist" value="<%= @this_stylist.id %>">
   </div>
 </form>
 <div class="well">
@@ -22,7 +20,6 @@
       <form action="/clients/<%= client.id() %>" method="post">
         <div class="form-group">
           <input name="_method" type="hidden" value="delete">
-          <!-- <input type="hidden" name="chosen_client" value="<%= client.id %>"> -->
         </div>
         <button class="move_right btn" type="submit">Remove Booking</button>
       </form>
@@ -30,7 +27,6 @@
         <label for="name">Change Booking Name</label>
         <input type="text" name="client_name">
         <input name="_method" type="hidden" value="patch">
-        <!-- <input type="hidden" name="chosen_client" value="<%= client.id %>"> -->
         <button class="btn" type="submit">Update</button>
       </form>
     </li>
